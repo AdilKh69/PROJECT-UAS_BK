@@ -53,7 +53,7 @@
 
                                 <div>
                                     <div class="font-bold text-xs sm:text-base leading-tight">Masuk sebagai Mahasiswa</div>
-                                    <div class="text-[15px] sm:text-xs text-emerald-100/90 mt-0.5">Lapor & cek barang temu an</div>
+                                    <div class="text-[10px] sm:text-xs text-emerald-100/90 mt-0.5">Lapor & cek barang temuan</div>
                                 </div>
                             </div>
                             <span class="text-sm sm:text-xl opacity-70 group-hover:translate-x-1 group-hover:opacity-100 transition-all ml-2">→</span>
