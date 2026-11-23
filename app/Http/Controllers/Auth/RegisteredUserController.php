@@ -32,20 +32,25 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'npm' => ['nullable', 'string', 'max:50', 'unique:'.User::class],
+            'no_wa' => ['nullable', 'string', 'max:20'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'npm' => $request->npm,
+            'no_wa' => $request->no_wa,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'mahasiswa',
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('beranda', absolute: false));
     }
 }
