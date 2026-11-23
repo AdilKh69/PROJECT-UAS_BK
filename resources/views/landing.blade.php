@@ -85,7 +85,7 @@
                     <div class="group relative bg-white p-6 sm:p-7 rounded-3xl border-2 border-rose-100 hover:border-rose-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
-                                <div class="w-13 h-13 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center p-3 group-hover:scale-110 transition duration-300">
+                                <div class="  bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center p-3 group-hover:scale-110 transition duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                     </svg>
@@ -118,7 +118,7 @@
                     <div class="group relative bg-white p-6 sm:p-7 rounded-3xl border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
-                                <div class="w-13 h-13 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center p-3 group-hover:scale-110 transition duration-300">
+                                <div class="  bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center p-3 group-hover:scale-110 transition duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -226,11 +226,11 @@
                                 <!-- BADGE JENIS -->
                                 <div class="absolute top-3 left-3">
                                     @if($b->jenis == 'hilang')
-                                        <span class="px-2.5 py-0.5 text-[11px] font-bold bg-[#FEF3C7] text-[#92400E] rounded-md shadow-2xs">
+                                        <span class="px-2.5 py-0.5 text-[11px] font-bold bg-[#FEF3C7] text-[#92400E] rounded-md ">
                                             Hilang
                                         </span>
                                     @else
-                                        <span class="px-2.5 py-0.5 text-[11px] font-bold bg-[#E6F4F1] text-[#0F5B54] rounded-md shadow-2xs">
+                                        <span class="px-2.5 py-0.5 text-[11px] font-bold bg-[#E6F4F1] text-[#0F5B54] rounded-md ">
                                             Ditemukan
                                         </span>
                                     @endif

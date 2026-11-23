@@ -15,7 +15,7 @@
         <!-- Email Address -->
         <div>
             <label for="email" class="block text-xs font-bold text-gray-800 mb-1.5">Email</label>
-            <input id="email" class="block w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition shadow-2xs" 
+            <input id="email" class="block w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition " 
                    type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" placeholder="nama@email.com" />
             <x-input-error :messages="$errors->get('email')" class="mt-1.5" />
         </div>
@@ -31,7 +31,7 @@
                 @endif
             </div>
             <div class="relative">
-                <input id="password" class="block w-full px-3.5 py-2.5 pr-10 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition shadow-2xs"
+                <input id="password" class="block w-full px-3.5 py-2.5 pr-10 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition "
                        :type="showPass ? 'text' : 'password'"
                        name="password"
                        required autocomplete="current-password" placeholder="Masukkan kata sandi" />

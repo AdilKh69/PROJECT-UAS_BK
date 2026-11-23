@@ -237,7 +237,7 @@
                                                     <form method="POST" action="{{ route('admin.barangs.verify', $b) }}">
                                                         @csrf
                                                         @method('PATCH')
-                                                        <button type="submit" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition shadow-2xs" title="Verifikasi Laporan">
+                                                        <button type="submit" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition " title="Verifikasi Laporan">
                                                             ✓ Setujui
                                                         </button>
                                                     </form>

@@ -11,7 +11,7 @@
 
     <!-- NAVBAR HEADER -->
     <header class="w-full bg-[#F7F8F6]/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
             <a href="{{ route('landing') }}" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-xl bg-[#0F5B54] text-white flex items-center justify-center ">
                     <span class="material-symbols-outlined text-[24px]">search_check</span>
@@ -145,7 +145,7 @@
                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
 
                                 @if(!$barang->hasRealFoto())
-                                    <span class="absolute bottom-2 right-2 px-2 py-0.5 bg-white/90 backdrop-blur-xs text-[10px] font-semibold text-gray-500 rounded-md  border border-gray-200">
+                                    <span class="absolute bottom-2 right-2 px-2 py-0.5 bg-white/90  text-[10px] font-semibold text-gray-500 rounded-md  border border-gray-200">
                                         Ilustrasi
                                     </span>
                                 @endif
@@ -153,11 +153,11 @@
                                 <!-- BADGE JENIS -->
                                 <div class="absolute top-3 left-3 flex gap-2">
                                     @if($barang->jenis == 'hilang')
-                                        <span class="px-2.5 py-0.5 text-xs font-bold bg-[#FEF3C7] text-[#92400E] rounded-md shadow-2xs">
+                                        <span class="px-2.5 py-0.5 text-xs font-bold bg-[#FEF3C7] text-[#92400E] rounded-md ">
                                             Hilang
                                         </span>
                                     @else
-                                        <span class="px-2.5 py-0.5 text-xs font-bold bg-[#E6F4F1] text-[#0F5B54] rounded-md shadow-2xs">
+                                        <span class="px-2.5 py-0.5 text-xs font-bold bg-[#E6F4F1] text-[#0F5B54] rounded-md ">
                                             Ditemukan
                                         </span>
                                     @endif

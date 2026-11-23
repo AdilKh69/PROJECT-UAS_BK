@@ -33,7 +33,7 @@
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2">Jenis Laporan *</label>
                         <div class="grid grid-cols-2 gap-4">
-                            <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer hover:border-rose-400 has-checked:border-rose-600 has-checked:bg-rose-50/50 transition">
+                            <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer hover:border-rose-400 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-50/50 transition">
                                 <input type="radio" name="jenis" value="hilang" class="sr-only" {{ old('jenis', $barang->jenis) == 'hilang' ? 'checked' : '' }} required>
                                 <span class="flex items-center gap-2 font-bold text-rose-700 text-sm sm:text-base">
                                     <span class="w-3 h-3 rounded-full bg-rose-600 inline-block"></span>
@@ -41,7 +41,7 @@
                                 </span>
                             </label>
 
-                            <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer hover:border-emerald-400 has-checked:border-emerald-600 has-checked:bg-emerald-50/50 transition">
+                            <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer hover:border-emerald-400 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 transition">
                                 <input type="radio" name="jenis" value="ditemukan" class="sr-only" {{ old('jenis', $barang->jenis) == 'ditemukan' ? 'checked' : '' }}>
                                 <span class="flex items-center gap-2 font-bold text-emerald-700 text-sm sm:text-base">
                                     <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>

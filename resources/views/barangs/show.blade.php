@@ -122,12 +122,12 @@
             <div class="lg:col-span-8 space-y-6">
                 
                 <!-- CARD DETAIL BARANG -->
-                <div class="bg-white rounded-2xl border border-gray-200/80 shadow-2xs p-6 flex flex-col sm:flex-row gap-6">
+                <div class="bg-white rounded-2xl border border-gray-200/80  p-6 flex flex-col sm:flex-row gap-6">
                     <!-- FOTO ATAU PREVIEW -->
                     <div class="w-full sm:w-56 h-48 bg-[#EBF5F3] rounded-xl flex items-center justify-center shrink-0 overflow-hidden relative border border-gray-100">
                         <img src="{{ $barang->gambar_url }}" alt="{{ $barang->nama_barang }}" class="w-full h-full object-cover">
                         @if(!$barang->hasRealFoto())
-                            <span class="absolute bottom-2 text-[10px] text-gray-500 font-medium bg-white/90 px-2 py-0.5 rounded-md shadow-2xs">Foto dari pelapor</span>
+                            <span class="absolute bottom-2 text-[10px] text-gray-500 font-medium bg-white/90 px-2 py-0.5 rounded-md ">Foto dari pelapor</span>
                         @endif
                     </div>
 
@@ -160,13 +160,13 @@
                 </div>
 
                 <!-- CARD RIWAYAT LAPORAN (TIMELINE STEPPER) (Sesuai Gambar 1) -->
-                <div class="bg-white rounded-2xl border border-gray-200/80 shadow-2xs p-6 space-y-5">
+                <div class="bg-white rounded-2xl border border-gray-200/80  p-6 space-y-5">
                     <h3 class="font-extrabold text-base text-gray-900">Riwayat laporan</h3>
 
                     <div class="space-y-6 relative pl-2">
                         <!-- Step 1: Laporan dikirim -->
                         <div class="flex items-start gap-3.5 relative">
-                            <div class="w-6 h-6 rounded-full bg-[#0F5B54] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                            <div class="w-6 h-6 rounded-full bg-[#0F5B54] text-white flex items-center justify-center shrink-0 ">
                                 <span class="material-symbols-outlined text-[16px]">check</span>
                             </div>
                             <div>
@@ -248,7 +248,7 @@
             <div class="lg:col-span-4 space-y-6">
                 
                 <!-- CARD PELAPOR (Sesuai Referensi Gambar 1) -->
-                <div class="bg-white rounded-2xl border border-gray-200/80 shadow-2xs p-5 space-y-4">
+                <div class="bg-white rounded-2xl border border-gray-200/80  p-5 space-y-4">
                     <h3 class="font-extrabold text-sm text-gray-900">Pelapor</h3>
 
                     <div class="flex items-center gap-3">
@@ -274,7 +274,7 @@
                 </div>
 
                 <!-- CARD TINDAKAN (Sesuai Referensi Gambar 1) -->
-                <div class="bg-white rounded-2xl border border-gray-200/80 shadow-2xs p-5 space-y-4">
+                <div class="bg-white rounded-2xl border border-gray-200/80  p-5 space-y-4">
                     <h3 class="font-extrabold text-sm text-gray-900">
                         {{ (Auth::check() && Auth::user()->isAdmin()) ? 'Tindakan admin' : 'Tindakan' }}
                     </h3>
