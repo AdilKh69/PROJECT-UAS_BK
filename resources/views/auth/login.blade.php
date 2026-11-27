@@ -32,9 +32,9 @@
             </div>
             <div class="relative">
                 <input id="password" class="block w-full px-3.5 py-2.5 pr-10 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition"
-                       :type="showPass ? 'text' : 'password'"
-                       name="password"
-                       required autocomplete="current-password" placeholder="Masukkan kata sandi" />
+                    :type="showPass ? 'text' : 'password'"
+                    name="password"
+                    required autocomplete="current-password" placeholder="Masukkan kata sandi" />
                 <button type="button" @click="showPass = !showPass" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 focus:outline-hidden">
                     <span class="material-symbols-outlined text-[20px]" x-text="showPass ? 'visibility_off' : 'visibility'"></span>
                 </button>
@@ -64,7 +64,6 @@
                 <a href="{{ route('register') }}" class="font-bold text-[#0F5B54] hover:underline">Daftar di sini</a>
             </p>
         @endif
-
         <!-- Quick Demo Account (Mahasiswa Only) -->
         <div class="mt-6 pt-4 border-t border-gray-100">
             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider text-center mb-2">Akun Demo Mahasiswa:</p>
