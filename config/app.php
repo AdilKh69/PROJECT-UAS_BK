@@ -43,6 +43,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Admin Panel Deployment Toggle
+    |--------------------------------------------------------------------------
+    |
+    | Set ADMIN_ENABLED=false saat deploy untuk menonaktifkan seluruh akses
+    | dan rute halaman Admin (hanya fitur mahasiswa yang aktif).
+    |
+    */
+
+    'admin_enabled' => (bool) env('ADMIN_ENABLED', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application URL
     |--------------------------------------------------------------------------
     |

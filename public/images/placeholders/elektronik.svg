@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="100%" height="100%">
+  <rect width="300" height="200" fill="#EBF5F3" />
+  <!-- Minimal Line Art Multi-Device Elektronik (Laptop, Smartphone, Headphones) -->
+  <g stroke="#0F5B54" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Laptop -->
+    <rect x="64" y="58" width="84" height="56" rx="5" />
+    <path d="M 56 122 L 154 122" />
+    <path d="M 92 122 L 118 122" stroke-width="4" />
+
+    <!-- Smartphone (depan kanan laptop) -->
+    <rect x="136" y="74" width="38" height="64" rx="6" fill="#EBF5F3" />
+    <line x1="150" y1="81" x2="160" y2="81" />
+    <line x1="149" y1="130" x2="161" y2="130" />
+
+    <!-- Headphones (kanan) -->
+    <path d="M 194 106 V 95 A 21 21 0 0 1 236 95 V 106" />
+    <rect x="189" y="103" width="10" height="21" rx="4" fill="#EBF5F3" />
+    <rect x="231" y="103" width="10" height="21" rx="4" fill="#EBF5F3" />
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="100%" height="100%">
+  <rect width="300" height="200" fill="#EBF5F3" />
+  <!-- Minimal Line Art Helmet / Pakaian -->
+  <g stroke="#0F5B54" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(115, 60)">
+    <path d="M 10 50 C 10 20, 25 10, 48 10 C 72 10, 85 25, 85 50 C 85 68, 65 72, 45 72 C 25 72, 10 65, 10 50 Z" />
+    <path d="M 35 25 C 55 23, 75 30, 80 45 C 80 55, 68 60, 48 60 C 35 60, 30 50, 35 25 Z" />
+  </g>
+</svg>

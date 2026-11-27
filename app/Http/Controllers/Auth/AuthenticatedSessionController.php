@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -20,15 +21,24 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request.
+     * Handle an incoming authentication request (khusus pengguna/mahasiswa).
      */
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
-        $request->session()->regenerate();
+        if ($request->user()->isAdmin()) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+            throw ValidationException::withMessages([
+                'email' => 'Akun administrator tidak dapat masuk melalui halaman login pengguna.',
+            ]);
+        }
+
+        $request->session()->regenerate();
+        return redirect()->intended(route('beranda', absolute: false));
     }
 
     /**
@@ -37,11 +47,8 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

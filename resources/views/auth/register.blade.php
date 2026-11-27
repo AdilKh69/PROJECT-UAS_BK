@@ -4,15 +4,29 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-label for="name" :value="__('Nama Lengkap')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Contoh: Budi Santoso" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        </div>
+
+        <!-- NPM -->
+        <div class="mt-4">
+            <x-input-label for="npm" :value="__('NPM / Identitas Mahasiswa (Opsional)')" />
+            <x-text-input id="npm" class="block mt-1 w-full" type="text" name="npm" :value="old('npm')" placeholder="Contoh: 217006001" />
+            <x-input-error :messages="$errors->get('npm')" class="mt-2" />
+        </div>
+
+        <!-- No WhatsApp -->
+        <div class="mt-4">
+            <x-input-label for="no_wa" :value="__('Nomor WhatsApp Aktif')" />
+            <x-text-input id="no_wa" class="block mt-1 w-full" type="tel" name="no_wa" :value="old('no_wa')" required placeholder="Contoh: 081234567890" />
+            <x-input-error :messages="$errors->get('no_wa')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="nama@student.unsil.ac.id" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
