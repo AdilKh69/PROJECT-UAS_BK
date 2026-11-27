@@ -36,21 +36,12 @@
             <!-- AUTH BUTTONS -->
             <div class="flex items-center gap-2.5">
                 @auth
-                    @if(Auth::user()->isAdmin())
-                        <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center gap-1.5 px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm transition">
-                            Panel Admin
-                        </a>
-                    @else
-                        <a href="{{ route('beranda') }}" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm transition">
-                            Katalog <span class="hidden sm:inline">& Laporan</span>({{ Auth::user()->name }})
-                        </a>
-                    @endif
-                @else
-                    <a href="{{ route('login') }}" class="text-xs sm:text-sm font-bold text-gray-700 hover:text-emerald-700 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
-                        Masuk
+                    <a href="{{ route('beranda') }}" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm transition">
+                        Katalog <span class="hidden sm:inline">& Laporan</span> ({{ Auth::user()->name }})
                     </a>
-                    <a href="{{ route('register') }}" class="inline-flex items-center px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm transition">
-                        Daftar Akun
+                @else
+                    <a href="{{ route('login') }}" class="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm transition">
+                        Masuk
                     </a>
                 @endauth
             </div>
@@ -63,11 +54,6 @@
         <!-- HERO SECTION (User-Centric Action Portal) -->
         <section class="relative bg-gradient-to-b from-emerald-50/50 via-[#F7F8F6] to-[#F7F8F6] pt-12 pb-16 sm:pt-16 sm:pb-24 border-b border-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-100/80 text-emerald-900 text-xs font-bold rounded-full ">
-                    <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                    Sistem Pelaporan Barang Hilang & Temuan Terpadu
-                </div>
 
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-gray-950 tracking-tight leading-tight max-w-4xl mx-auto">
                     Kehilangan atau Menemukan <br class="hidden sm:inline">
@@ -295,11 +281,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
                 
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Panduan Pengguna</span>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1">Bagaimana Alur Pelaporan Berjalan?</h2>
-                    <p class="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto mt-2">
-                        Hanya butuh 3 langkah sederhana untuk membantu atau mengklaim barang di kampus UNSIL.
-                    </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
@@ -342,7 +324,7 @@
                 <!-- CTA BOTTOM -->
                 <div class="pt-4">
                     <a href="{{ route('barangs.create') }}" class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-2xl shadow-lg hover:shadow-xl transition">
-                        + Mulai Buat Laporan Sekarang
+                    Mulai Buat Laporan Sekarang
                     </a>
                 </div>
 
@@ -362,7 +344,6 @@
             <div class="flex items-center gap-6 font-medium text-gray-600">
                 <a href="{{ route('beranda') }}" class="hover:text-emerald-700">Katalog Barang</a>
                 <a href="{{ route('login') }}" class="hover:text-emerald-700">Masuk Akun</a>
-                <a href="{{ route('register') }}" class="hover:text-emerald-700">Daftar Mahasiswa</a>
             </div>
         </div>
     </footer>

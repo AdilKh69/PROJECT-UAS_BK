@@ -18,11 +18,6 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-6 sm:-my-px sm:ms-8 sm:flex">
-                    @if(Auth::user()->isAdmin())
-                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.*')">
-                            <span class="text-red-600 font-bold">🛡️ {{ __('Panel Admin') }}</span>
-                        </x-nav-link>
-                    @endif
                     <x-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
                         {{ __('Katalog Barang') }}
                     </x-nav-link>
@@ -30,7 +25,7 @@
                         {{ __('+ Buat Laporan') }}
                     </x-nav-link>
                     <x-nav-link :href="route('barangs.my')" :active="request()->routeIs('barangs.my')">
-                        {{ Auth::user()->isAdmin() ? __('Kelola Semua Laporan') : __('Laporan Saya') }}
+                        {{ __('Laporan Saya') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -104,11 +99,6 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden border-t border-gray-200">
         <div class="pt-2 pb-3 space-y-1">
-            @if(Auth::user()->isAdmin())
-                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.*')">
-                    <span class="text-red-600 font-bold">🛡️ {{ __('Panel Admin') }}</span>
-                </x-responsive-nav-link>
-            @endif
             <x-responsive-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
                 {{ __('Katalog Barang') }}
             </x-responsive-nav-link>
@@ -116,7 +106,7 @@
                 {{ __('+ Buat Laporan') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('barangs.my')" :active="request()->routeIs('barangs.my')">
-                {{ Auth::user()->isAdmin() ? __('Kelola Semua Laporan') : __('Laporan Saya') }}
+                {{ __('Laporan Saya') }}
             </x-responsive-nav-link>
         </div>
 

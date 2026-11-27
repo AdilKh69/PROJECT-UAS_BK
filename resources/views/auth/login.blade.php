@@ -15,7 +15,7 @@
         <!-- Email Address -->
         <div>
             <label for="email" class="block text-xs font-bold text-gray-800 mb-1.5">Email</label>
-            <input id="email" class="block w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition " 
+            <input id="email" class="block w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition"
                    type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" placeholder="nama@email.com" />
             <x-input-error :messages="$errors->get('email')" class="mt-1.5" />
         </div>
@@ -31,7 +31,7 @@
                 @endif
             </div>
             <div class="relative">
-                <input id="password" class="block w-full px-3.5 py-2.5 pr-10 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition "
+                <input id="password" class="block w-full px-3.5 py-2.5 pr-10 text-sm rounded-xl border border-gray-300 bg-white placeholder-gray-400 focus:border-[#0F5B54] focus:ring-1 focus:ring-[#0F5B54] transition"
                        :type="showPass ? 'text' : 'password'"
                        name="password"
                        required autocomplete="current-password" placeholder="Masukkan kata sandi" />
@@ -45,39 +45,33 @@
         <!-- Remember Me -->
         <div class="flex items-center pt-0.5">
             <label for="remember_me" class="inline-flex items-center cursor-pointer">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-[#0F5B54]  focus:ring-[#0F5B54]" name="remember">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-[#0F5B54] focus:ring-[#0F5B54]" name="remember">
                 <span class="ms-2 text-xs text-gray-600 font-medium">Ingat saya di perangkat ini</span>
             </label>
         </div>
 
         <!-- Submit Button -->
         <div class="pt-2">
-            <button type="submit" class="w-full py-3 px-4 bg-[#0F5B54] hover:bg-[#0C4A44] text-white font-bold text-sm rounded-xl  transition duration-150">
+            <button type="submit" class="w-full py-3 px-4 bg-[#0F5B54] hover:bg-[#0C4A44] text-white font-bold text-sm rounded-xl transition duration-150">
                 Masuk
             </button>
         </div>
 
-        <!-- Link Register -->
-        <div class="text-center text-xs text-gray-600 pt-2">
-            Belum punya akun? 
-            <a href="{{ route('register') }}" class="font-bold text-[#0F5B54] hover:underline">
-                Daftar sekarang
-            </a>
-        </div>
+        <!-- Tautan Daftar Akun Khusus Mahasiswa -->
+        @if (Route::has('register'))
+            <p class="text-center text-xs text-gray-600 pt-2">
+                Belum punya akun mahasiswa?
+                <a href="{{ route('register') }}" class="font-bold text-[#0F5B54] hover:underline">Daftar di sini</a>
+            </p>
+        @endif
 
-        <!-- Quick Demo Accounts (UAS Testing helper) -->
+        <!-- Quick Demo Account (Mahasiswa Only) -->
         <div class="mt-6 pt-4 border-t border-gray-100">
-            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider text-center mb-2">Akun Demo Pengujian:</p>
-            <div class="grid grid-cols-2 gap-2 text-xs">
-                <button type="button" onclick="isiAkun('mahasiswa@unsil.ac.id', 'password')"
-                        class="px-2.5 py-1.5 bg-[#F0F9F8] hover:bg-[#D8EDE9] text-[#0F5B54] font-semibold rounded-lg text-center transition border border-[#B5DDD5]">
-                    Mahasiswa Demo
-                </button>
-                <button type="button" onclick="isiAkun('admin@unsil.ac.id', 'password')"
-                        class="px-2.5 py-1.5 bg-gray-50 hover:bg-gray-100 text-gray-700 font-semibold rounded-lg text-center transition border border-gray-200">
-                    Admin Demo
-                </button>
-            </div>
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider text-center mb-2">Akun Demo Mahasiswa:</p>
+            <button type="button" onclick="isiAkun('mahasiswa@unsil.ac.id', 'password')"
+                    class="w-full px-3 py-2 bg-[#F0F9F8] hover:bg-[#D8EDE9] text-[#0F5B54] font-semibold text-xs rounded-lg text-center transition border border-[#B5DDD5]">
+                Isi Akun Mahasiswa Demo
+            </button>
         </div>
     </form>
 

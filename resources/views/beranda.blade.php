@@ -12,7 +12,7 @@
     <!-- NAVBAR HEADER -->
     <header class="w-full bg-[#F7F8F6]/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
-            <a href="{{ route('landing') }}" class="flex items-center gap-3 group">
+            <a href="{{ route('beranda') }}" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-xl bg-[#0F5B54] text-white flex items-center justify-center ">
                     <span class="material-symbols-outlined text-[24px]">search_check</span>
                 </div>
@@ -24,26 +24,25 @@
             </a>
 
             <!-- NAV ACTIONS -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
                 @auth
-                    @if(Auth::user()->isAdmin())
-                        <a href="{{ route('admin.dashboard') }}" class="hidden sm:inline-flex items-center text-xs sm:text-sm font-bold text-[#0F5B54] hover:underline">
-                            Panel Admin
-                        </a>
-                    @endif
                     <a href="{{ route('barangs.my') }}" class="hidden sm:inline-flex items-center text-sm font-semibold text-gray-700 hover:text-[#0F5B54]">
-                        {{ Auth::user()->isAdmin() ? 'Semua Laporan' : 'Laporan Saya' }}
+                        Laporan Saya
                     </a>
-                    <a href="{{ route('barangs.create') }}" class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0F5B54] hover:bg-[#0C4A44] text-white text-xs sm:text-sm font-bold rounded-xl  transition">
+                    <a href="{{ route('barangs.create') }}" class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0F5B54] hover:bg-[#0C4A44] text-white text-xs sm:text-sm font-bold rounded-xl transition">
                         <span class="material-symbols-outlined text-[18px]">add</span>
                         <span>Buat Laporan</span>
                     </a>
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                        @csrf
+                        <button type="submit" class="inline-flex items-center gap-1 px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs sm:text-sm font-bold rounded-xl border border-rose-200 transition">
+                            <span class="material-symbols-outlined text-[18px]">logout</span>
+                            <span class="hidden sm:inline">Keluar</span>
+                        </button>
+                    </form>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm font-semibold text-gray-700 hover:text-[#0F5B54] px-3 py-1.5 rounded-lg transition">
+                    <a href="{{ route('login') }}" class="inline-flex items-center px-4 py-2 bg-[#0F5B54] hover:bg-[#0C4A44] text-white text-sm font-bold rounded-xl transition">
                         Masuk
-                    </a>
-                    <a href="{{ route('register') }}" class="inline-flex items-center px-4 py-2 bg-[#0F5B54] hover:bg-[#0C4A44] text-white text-sm font-bold rounded-xl  transition">
-                        Daftar Akun
                     </a>
                 @endauth
             </div>

@@ -1,11 +1,11 @@
-<x-app-layout>
+<x-dynamic-component :component="(Auth::user()->isAdmin() && Route::has('admin.dashboard')) ? 'admin-layout' : 'app-layout'">
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-bold text-xl text-gray-800 leading-tight">
                 {{ __('Buat Laporan Barang Baru') }}
             </h2>
-            <a href="{{ route('beranda') }}" class="text-xs font-semibold text-emerald-700 hover:text-emerald-800">
-                ← Kembali ke Katalog
+            <a href="{{ (Auth::user()->isAdmin() && Route::has('admin.dashboard')) ? route('admin.dashboard') : route('beranda') }}" class="text-xs font-semibold text-emerald-700 hover:text-emerald-800">
+                {{ (Auth::user()->isAdmin() && Route::has('admin.dashboard')) ? '← Kembali ke Panel Admin' : '← Kembali ke Katalog' }}
             </a>
         </div>
     </x-slot>
@@ -116,4 +116,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-dynamic-component>

@@ -1,35 +1,39 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Barang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-// Halaman Utama Landing Page (User-Centric Portal)
+// Halaman Awal langsung menuju Login (atau Beranda/Dashboard jika sudah masuk)
 Route::get('/', function () {
-    $barangsTerbaru = Barang::with('user')->latest()->take(6)->get();
-    $totalHilang = Barang::where('jenis', 'hilang')->where('status', '!=', 'selesai')->count();
-    $totalTemuan = Barang::where('jenis', 'ditemukan')->where('status', '!=', 'selesai')->count();
-    $totalSelesai = Barang::where('status', 'selesai')->count();
+    if (Auth::check()) {
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+        if ($user->isAdmin() && Route::has('admin.dashboard')) {
+            return redirect()->route('admin.dashboard');
+        }
 
-    return view('landing', compact('barangsTerbaru', 'totalHilang', 'totalTemuan', 'totalSelesai'));
+        return redirect()->route('beranda');
+    }
+
+    return redirect()->route('login');
 })->name('landing');
 
-// Katalog Publik Barang Hilang & Ditemukan
+// Katalog Publik Barang Hilang & Ditemukan (Mahasiswa / Pengguna)
 Route::get('/beranda', [BarangController::class, 'index'])->name('beranda');
 
 // Detail Barang (publik)
 Route::get('/barangs/{barang}', [BarangController::class, 'show'])->name('barangs.show');
 
-// Redirect Dashboard berdasarkan Role (Khusus Admin ke Panel Admin, Mahasiswa langsung ke Beranda)
+// Redirect Dashboard berdasarkan Role
 Route::get('/dashboard', function () {
     /** @var \App\Models\User $user */
     $user = Auth::user();
-    if ($user->isAdmin()) {
+    if ($user->isAdmin() && Route::has('admin.dashboard')) {
         return redirect()->route('admin.dashboard');
     }
+
     return redirect()->route('beranda');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -39,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/lapor', [BarangController::class, 'create'])->name('barangs.create');
     Route::post('/lapor', [BarangController::class, 'store'])->name('barangs.store');
 
-    // Riwayat Laporan Milik Pengguna (atau Semua Laporan jika Admin)
+    // Riwayat Laporan Milik Pengguna
     Route::get('/laporan-saya', [BarangController::class, 'myReports'])->name('barangs.my');
 
     // Edit & Hapus Laporan
@@ -56,12 +60,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Panel Khusus Administrator Kampus (Dilindungi Middleware Admin)
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::patch('/barangs/{barang}/verify', [AdminController::class, 'verify'])->name('barangs.verify');
-    Route::patch('/barangs/{barang}/complete', [AdminController::class, 'complete'])->name('barangs.complete');
-    Route::delete('/barangs/{barang}', [AdminController::class, 'destroy'])->name('barangs.destroy');
-});
-
 require __DIR__.'/auth.php';
+
+// Rute Admin dipisah agar tidak ikut aktif saat deployment publik (ADMIN_ENABLED=false)
+if (config('app.admin_enabled', true) && file_exists(__DIR__.'/admin.php')) {
+    require __DIR__.'/admin.php';
+}

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $admin = User::firstOrCreate(
             ['email' => 'admin@unsil.ac.id'],
             [
-                'name' => 'Admin Lost & Found UNSIL',
+                'name' => 'Admin Hilang & Temukan UNSIL',
                 'npm' => 'ADMIN01',
                 'no_wa' => '081234567890',
                 'password' => Hash::make('password'),

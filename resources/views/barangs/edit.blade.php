@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-dynamic-component :component="(Auth::user()->isAdmin() && Route::has('admin.dashboard')) ? 'admin-layout' : 'app-layout'">
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-bold text-xl text-gray-800 leading-tight">
@@ -127,4 +127,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-dynamic-component>

@@ -12,7 +12,7 @@
     <!-- NAVBAR HEADER -->
     <header class="w-full bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
-            <a href="{{ route('landing') }}" class="flex items-center gap-2.5">
+            <a href="{{ route('beranda') }}" class="flex items-center gap-2.5">
                 <div class="w-9 h-9 rounded-xl bg-[#0F5B54] text-white flex items-center justify-center ">
                     <span class="material-symbols-outlined text-[20px]">search_check</span>
                 </div>
@@ -24,7 +24,7 @@
 
             <div class="flex items-center gap-3">
                 @auth
-                    @if(Auth::user()->isAdmin())
+                    @if(Auth::user()->isAdmin() && Route::has('admin.dashboard'))
                         <a href="{{ route('admin.dashboard') }}" class="text-xs sm:text-sm font-semibold text-[#0F5B54] hover:underline flex items-center gap-1">
                             <span class="material-symbols-outlined text-[18px]">arrow_back</span>
                             <span>Kembali ke Panel Admin</span>
@@ -58,7 +58,7 @@
         <!-- TOP BAR: BACK LINK & HEADER TITLE -->
         <div class="space-y-3">
             @auth
-                @if(Auth::user()->isAdmin())
+                @if(Auth::user()->isAdmin() && Route::has('admin.dashboard'))
                     <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-[#0F5B54]">
                         <span class="material-symbols-outlined text-[16px]">arrow_back</span>
                         <span>Kembali ke daftar laporan</span>
